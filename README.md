@@ -1,7 +1,7 @@
 # AvapiCpp
 
 AvapiCpp is a C++ API Wrapper allowing to retrieve data from Alpha Vantage endpoint (https://www.alphavantage.co/). 
-This software uses jsmn library to parser the JSON format (https://github.com/zserge/jsmn) - see the license in Avapi/jsmn/LICENCE. Furthermore to develop we have used the APIs curl (https://curl.haxx.se), using GnuTLS for the SSL/TLS support - see the license in Avapi/curl/LICENCE.
+This software uses jsmn library to parser the JSON format (https://github.com/zserge/jsmn) - see the license in Avapi/jsmn/LICENCE. Furthermore to develop our Rest Client we have used the APIs curl (https://curl.haxx.se), with GnuTLS for the SSL/TLS support - see the license in Avapi/curl/LICENCE.
 
 To start using Avapi you just need to:
 * Register to Alpha Vantage web site and get your personal api key (https://www.alphavantage.co/support/#api-key). It's for free!
