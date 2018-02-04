@@ -1,0 +1,18 @@
+###################
+# compiled source #
+###################
+*.o
+*.layout
+###############
+# Directories #
+###############
+bin/
+obj/
+Obj/
+Resut/
+Results/
+######################
+# Logs and databases #
+######################
+*.log
+*.sqlite
