@@ -1,6 +1,7 @@
 # AvapiCpp
 
-AvapiCpp is a C++ API Wrapper allowing to retrieve data from Alpha Vantage endpoint (https://www.alphavantage.co/).  
+AvapiCpp is a C++ API Wrapper allowing to retrieve data from Alpha Vantage endpoint (https://www.alphavantage.co/). 
+This software uses jsmn library to parser the JSON format (https://github.com/zserge/jsmn) - see the license in Avapi/jsmn/LICENCE. Furthermore to develop we have used the APIs curl (https://curl.haxx.se), using GnuTLS for the SSL/TLS support - see the license in Avapi/curl/LICENCE.
 
 To start using Avapi you just need to:
 * Register to Alpha Vantage web site and get your personal api key (https://www.alphavantage.co/support/#api-key). It's for free!
@@ -12,7 +13,7 @@ To start using Avapi you just need to:
 
 ## Supported OS:
 ### Linux:
--Ubuntu 16
+-Ubuntu 16 (64 bit)
 
 ### Windows:
 -_coming soon_
@@ -29,7 +30,7 @@ To use Avapi you need to install the curl lib.
 
 ### Install curl for Ubuntu
 ```
-$ sudo apt-get install libcurl4-openssl-dev
+$ sudo apt-get install libcurl4-gnutls-dev
 ```
 
 
@@ -127,25 +128,31 @@ int main()
 ```
 #### Remember:
 - to replace the parameter in **avapi_connection->set_ApiKey("Your Alpha Vantage API Key !!!!")** , with your Alpha Vantage API key (to claim it see above).
-- the library folder (Avapi/) has to be inside the AvapiExample, if you want to change the Avapi position you need to change these 2 lines in the code:
-```
-#include "DifferentAvapiPath/AvapiConnection.hpp"
-#include "DifferentAvapiPath/TIME_SERIES/TIME_SERIES_DAILY.hpp" 
-```
+- the library folder (Avapi/) has to be inside the AvapiExample, if you want to change the Avapi position you need run the g++ compiler with the option -I see below.
 
 ### 5. Run the following commands, to compile/configure and run your application: 
 
 #### Linux:
 ```
-$ g++  -L <LIB_PATH> -Wall -fexceptions -std=c++11 -g AvapiExample.cpp -o myExample -lavapi
-$ export LD_LIBRARY_PATH=<LIB_PATH>:
+$ g++ -L <LIB_PATH> -std=c++11 AvapiExample.cpp -o myExample -lavapi
+$ export LD_LIBRARY_PATH=<LIB_PATH>:$LD_LIBRARY_PATH
 $ ./myExample
 ```
 you need to replace **<LIB_PATH>** with the Avapi path, in our example is: _/home/abcd/AvapiExample/Avapi/_. 
+
+#### Remember:
+The library folder (Avapi/) has to be inside the AvapiExample, if you want to change the Avapi position you need run the g++ compiler with the option **-I <PARENT_FOLDER_LIB_PATH>** see below. For istance:
+- your library folder (Avapi/) has this path _/home/efgh/Avapi/_. 
+- your source code is in  _/home/abcd/AvapiExample/AvapiExample.cpp_.
+- to compile/configure/run your application you need these commands:
+```
+$ cd /home/abcd/AvapiExample/
+$ g++ -L /home/efgh/Avapi/ -I /home/efgh/ -std=c++11 AvapiExample.cpp -o myExample -lavapi
+$ export LD_LIBRARY_PATH=/home/efgh/Avapi/:$LD_LIBRARY_PATH
+$ ./myExample
+```
 
 ### 6. You can enjoy your _MSFT daily time series_ displayed on your shell :)
 ***
 
 **Authors**: Antonio Papa and Simone Giuliani
-
-**Email**: if you have any queries or suggestions please send us an email: sgiuliani.apapa at gmail.com
