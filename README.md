@@ -153,6 +153,9 @@ $ ./myExample
 ```
 
 ### 6. You can enjoy your _MSFT daily time series_ displayed on your shell :)
+
 ***
 
 **Authors**: Antonio Papa and Simone Giuliani
+
+**Email**: if you have any queries or suggestions please send us an email: sgiuliani.apapa at gmail.com
